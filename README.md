@@ -1,124 +1,110 @@
-# Diabetes Risk Prediction - Phase 1
+# Diabetes Risk Prediction Project
 
-## 🎯 Project Overview
+## 🎯 Project Objective
+Develop a machine learning-based prediction system to identify individuals at high risk of developing diabetes using easily obtainable health metrics, enabling early intervention and prevention strategies.
 
-This repository contains the first phase of a comprehensive diabetes risk prediction project using machine learning. The goal is to develop a binary classification model that can predict diabetes risk in patients based on health indicators.
+## 📊 Problem Statement
+Diabetes affects over 422 million people worldwide. This project aims to create an accessible screening tool that can:
+- Predict diabetes risk with >75% accuracy
+- Identify key risk factors for clinical decision-making
+- Provide early detection capabilities for healthcare providers
+- Support preventive healthcare initiatives
 
-## 📊 Dataset
-
-**Source:** Pima Indians Diabetes Database  
-**Origin:** National Institute of Diabetes and Digestive and Kidney Diseases  
-**Size:** 768 patient records  
-**Features:** 8 predictive features + 1 target variable  
-
-### Features Description:
-- **Pregnancies:** Number of times pregnant
-- **Glucose:** Plasma glucose concentration (mg/dL)
-- **BloodPressure:** Diastolic blood pressure (mm Hg)
-- **SkinThickness:** Triceps skin fold thickness (mm)
-- **Insulin:** 2-Hour serum insulin (mu U/ml)
-- **BMI:** Body mass index (weight in kg/(height in m)²)
-- **DiabetesPedigreeFunction:** Diabetes pedigree function (genetic predisposition)
-- **Age:** Age in years
-- **Outcome:** Class variable (0 = No diabetes, 1 = Diabetes)
-
-## 🔧 Phase 1 Objectives
-
-✅ **Project Definition** - Established clear classification objectives  
-✅ **Data Acquisition** - Loaded and validated the dataset  
-✅ **Data Exploration** - Comprehensive EDA and statistical analysis  
-✅ **Data Quality Assessment** - Identified and documented data issues  
-✅ **Missing Value Treatment** - Replaced zeros with NaN and applied median imputation  
-✅ **Outlier Detection** - IQR-based detection with percentile capping  
-✅ **Feature Engineering** - Created 7 meaningful derived features  
-✅ **Data Export** - Saved cleaned datasets for next phases  
-
-## ⚙️ Feature Engineering
-
-Created 7 new features to enhance predictive power:
-
-1. **BMI_Category** - WHO classification (Underweight, Normal, Overweight, Obese)
-2. **Age_Group** - Life stage grouping (Young, Middle-aged, Senior)
-3. **Glucose_Category** - Medical thresholds (Normal, Pre-diabetic, Diabetic)
-4. **BP_Category** - AHA guidelines (Normal, Elevated, High)
-5. **High_Pregnancies** - Risk indicator for ≥5 pregnancies
-6. **Risk_Score** - Composite normalized risk metric
-7. **Insulin_Resistance** - Metabolic indicator based on glucose+insulin levels
-
-## 📁 File Structure
-
+## 🗂️ Project Structure
 ```
-diabetes-risk-prediction/
-├── diabetes_lab_phase1.ipynb          # Main analysis notebook
-├── diabetes.csv                       # Original dataset
-├── diabetes_cleaned.csv               # Basic cleaned dataset
-├── diabetes_engineered.csv            # Full preprocessed dataset
-├── diabetes_numerical_only.csv        # Numerical features only
-├── README.md                          # This documentation
-└── requirements.txt                   # Dependencies
+diabetes_risk_prediction/
+├── PROJECT_OVERVIEW.md          # Comprehensive project documentation
+├── ANALYSIS_REPORT.md           # Detailed analysis results
+├── diabetes_analysis.py         # Main analysis script
+├── app.py                      # Streamlit web application
+├── diabetes.csv                # Original dataset
+├── diabetes_cleaned.csv        # Preprocessed dataset
+├── diabetes_engineered.csv     # Feature engineered dataset
+├── diabetes_lab_phase1.ipynb   # Jupyter notebook analysis
+├── requirements.txt            # Python dependencies
+├── DEPLOYMENT_GUIDE.md         # Deployment instructions
+└── STREAMLIT_DEPLOY.md         # Streamlit deployment guide
 ```
-
-## 🛠️ Technical Stack
-
-- **Python 3.12+**
-- **pandas** - Data manipulation and analysis
-- **numpy** - Numerical computing
-- **matplotlib** - Data visualization
-- **seaborn** - Statistical visualization
-- **scipy** - Statistical functions
-
-## 🚀 Getting Started
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/[username]/diabetes-risk-prediction.git
-   cd diabetes-risk-prediction
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the notebook:**
-   ```bash
-   jupyter notebook diabetes_lab_phase1.ipynb
-   ```
 
 ## 📈 Key Results
+- **Best Model**: Random Forest Classifier
+- **Accuracy**: 75.97%
+- **Most Important Feature**: Glucose (27.6%)
+- **Dataset**: 768 patients from Pima Indians Diabetes Database
+- **Deployment**: Functional Streamlit web application
 
-- **Data Completeness:** 100% (no missing values after preprocessing)
-- **Feature Coverage:** 87.5% increase in features (8 → 15)
-- **Record Preservation:** 100% (no data loss)
-- **Target Balance:** Maintained (65.1% No Diabetes, 34.9% Diabetes)
+## 🚀 Quick Start
 
-## 🔮 Next Steps (Phase 2)
+### 1. Clone the Repository
+```bash
+git clone https://github.com/JohnHika/john-diabetes-risk-prediction.git
+cd john-diabetes-risk-prediction
+```
 
-1. Advanced exploratory data analysis
-2. Feature selection and correlation analysis
-3. Model selection and training
-4. Cross-validation and hyperparameter tuning
-5. Model evaluation and comparison
-6. Performance metrics analysis
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## 📋 Quality Assurance
+### 3. Run Analysis
+```bash
+python diabetes_analysis.py
+```
 
-- Comprehensive data validation
-- Statistical outlier treatment
-- Feature engineering with domain knowledge
-- Data integrity verification
-- Reproducible preprocessing pipeline
+### 4. Launch Web Application
+```bash
+streamlit run app.py
+```
 
-## 👥 Contributing
+## 📋 Features Analyzed
+1. **Pregnancies** - Number of pregnancies
+2. **Glucose** - Plasma glucose concentration
+3. **BloodPressure** - Diastolic blood pressure
+4. **SkinThickness** - Triceps skinfold thickness
+5. **Insulin** - 2-Hour serum insulin
+6. **BMI** - Body Mass Index
+7. **DiabetesPedigreeFunction** - Genetic predisposition
+8. **Age** - Age in years
 
-This is an academic project. For suggestions or improvements, please open an issue or submit a pull request.
+## 🏆 Model Performance Comparison
+| Model | Accuracy | Status |
+|-------|----------|--------|
+| **Random Forest** | **75.97%** | **🏆 Best** |
+| SVM | 75.32% | Very Good |
+| Decision Tree | 72.73% | Good |
+| Logistic Regression | 71.43% | Baseline |
 
-## 📄 License
+## 📊 Key Insights
+- **Glucose levels** are the most critical predictor (27.6% importance)
+- **BMI and Age** are significant secondary risk factors
+- **Family history** (DiabetesPedigreeFunction) plays an important role
+- Model achieves clinical-grade accuracy for screening purposes
 
-This project is for educational purposes. Dataset credit goes to the National Institute of Diabetes and Digestive and Kidney Diseases.
+## 🔬 Methodology
+1. **Data Exploration**: Comprehensive EDA with 768 patient records
+2. **Data Preprocessing**: Handling zero values and feature scaling
+3. **Model Development**: Tested 4 different algorithms
+4. **Model Evaluation**: Used accuracy, precision, recall, and F1-score
+5. **Feature Analysis**: Identified most important predictive factors
+6. **Deployment**: Created user-friendly web application
+
+## 📚 Documentation
+- **[PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)** - Complete project planning and methodology
+- **[ANALYSIS_REPORT.md](ANALYSIS_REPORT.md)** - Detailed analysis results and findings
+- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Instructions for deploying the application
+
+## 🎓 Learning Outcomes
+This project demonstrates:
+- Complete data science workflow from problem definition to deployment
+- Supervised machine learning for healthcare applications
+- Model comparison and selection techniques
+- Feature importance analysis and interpretation
+- Web application development for machine learning models
+
+## 📞 Contact
+**John Hika**
+- GitHub: [@JohnHika](https://github.com/JohnHika)
+- Project Repository: [john-diabetes-risk-prediction](https://github.com/JohnHika/john-diabetes-risk-prediction)
 
 ---
-
-**Phase 1 Status:** ✅ Complete  
-**Next Phase:** Model Development and Evaluation  
-**Last Updated:** July 28, 2025
+*This project addresses real-world healthcare challenges using machine learning and follows industry best practices for data science project development.*
